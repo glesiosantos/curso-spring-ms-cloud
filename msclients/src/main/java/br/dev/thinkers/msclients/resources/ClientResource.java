@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
-import java.util.Arrays;
 import java.util.List;
 
 @RestController
@@ -30,8 +29,8 @@ public class ClientResource {
         return ResponseEntity.created(location).build();
     }
 
-    @GetMapping("/{cpf}")
-    public ResponseEntity<ClientDTO> getClientByCpf(String cpf) throws ChangeSetPersister.NotFoundException {
+    @GetMapping(params = "cpf")
+    public ResponseEntity<ClientDTO> getClientByCpf(@RequestParam("cpf") String cpf) throws ChangeSetPersister.NotFoundException {
         Client client = clientService.findByCpf(cpf);
         return ResponseEntity.ok(ClientDTO.toDto(client));
     }

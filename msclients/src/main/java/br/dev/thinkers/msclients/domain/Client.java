@@ -2,6 +2,7 @@ package br.dev.thinkers.msclients.domain;
 
 import br.dev.thinkers.msclients.dto.ClientDTO;
 import br.dev.thinkers.msclients.utils.Convert;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,9 +30,9 @@ public class Client {
 
     public Client() {}
 
-    public Client(String cpf, String name, LocalDate bornIn) {
-        this.cpf = cpf;
+    public Client( String name, String cpf, LocalDate bornIn) {
         this.name = name;
+        this.cpf = cpf;
         this.bornIn = bornIn;
     }
 
